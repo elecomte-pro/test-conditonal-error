@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>fr.elecomte</groupId>
+	<artifactId>test-conditional-error</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<name>Test on behavior changes with conditional</name>
+	<packaging>jar</packaging>
+
+	<properties>
+
+		<!-- Core parameters -->
+		<java.version>1.8</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<!-- Dependency management -->
+		<dependency.spring-boot.version>2.0.2.RELEASE</dependency.spring-boot.version>
+		<dependency.cxf.version>3.2.2</dependency.cxf.version>
+		<dependency.servlet.version>3.1.0</dependency.servlet.version>
+		<dependency.jackson.version>2.9.5</dependency.jackson.version>
+
+	</properties>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-dependencies</artifactId>
+			<version>${dependency.spring-boot.version}</version>
+			<type>pom</type>
+			<scope>import</scope>
+		</dependency>
+
+		<!-- ######### ######### spring-boot starters ######### ######### -->
+
+		<!-- Default spring boot features - MANDATORY -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+			<version>${dependency.spring-boot.version}</version>
+		</dependency>
+
+		<!-- Spring-mvc support - used for actuators - MANDATORY -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<version>${dependency.spring-boot.version}</version>
+		</dependency>
+
+		<!-- Core servlet spec - defined at common level - for SECURITY -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<scope>provided</scope>
+			<version>${dependency.servlet.version}</version>
+		</dependency>
+
+
+		<!-- CXF integration on SB - for SOAP PRODUCER -->
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxws</artifactId>
+			<version>${dependency.cxf.version}</version>
+		</dependency>
+
+		<!-- CXF integration on SB - for SOAP PRODUCER -->
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-transports-http</artifactId>
+			<version>${dependency.cxf.version}</version>
+		</dependency>
+
+		<!-- CXF integration on SB - for SOAP PRODUCER -->
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-core</artifactId>
+			<version>${dependency.cxf.version}</version>
+		</dependency>
+
+		<!-- Jaxb2 support - for SOAP PRODUCER, SOAP CONSUMER -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.module</groupId>
+			<artifactId>jackson-module-jaxb-annotations</artifactId>
+			<version>${dependency.jackson.version}</version>
+		</dependency>
+
+		<!-- Aegis support - for SOAP PRODUCER, SOAP CONSUMER -->
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-databinding-aegis</artifactId>
+			<version>${dependency.cxf.version}</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<configuration>
+						<source>${java.version}</source>
+						<target>${java.version}</target>
+						<encoding>${project.build.sourceEncoding}</encoding>
+					</configuration>
+				</plugin>
+				
+		</plugins>
+	</build>
+
+</project>
